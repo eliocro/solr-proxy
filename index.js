@@ -20,7 +20,7 @@ async function handler (req, h) {
       resolveWithFullResponse: true,
     });
 
-    return h.response(res.body).type(res.headers['content-type']);
+    return h.response(res.body).type(res.headers['content-type']).code(res.statusCode);
   }
   catch(err) {
     console.log(err);
@@ -50,7 +50,7 @@ async function handler (req, h) {
         method: 'GET',
         path:'/',
         config: {
-          handler: () => 'SOLR Relay',
+          handler: () => 'SOLR Proxy',
         },
       }, {
         method: 'GET',
